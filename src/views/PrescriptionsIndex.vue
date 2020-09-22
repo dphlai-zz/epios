@@ -15,6 +15,7 @@
   <div
     class="container result"
     v-for="prescription in prescriptions"
+    @click="goToPrescriptionDetails(prescription._id)"
   >
     <div>{{prescription.patientName}}</div>
     <div>{{prescription.patientMedicareNumber}}</div>
@@ -50,6 +51,16 @@ export default {
     .catch(err => console.warn(err));
   }, // created()
 
+  methods: {
+    goToPrescriptionDetails(prescriptionId){
+      this.$router.push({
+        name: 'PrescriptionDetails',
+        params: {
+          id: prescriptionId
+        }
+      });
+    } // goToPrescriptionDetails()
+  } // methods
 }
 </script>
 
