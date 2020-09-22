@@ -1,7 +1,15 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <h1>Welcome to Epios</h1>
+    <nav>
+      <router-link to="/login/doctors">Medical Practitioner Login</router-link>
+      |
+      <router-link to="/login/pharmacists">Pharmacist Login</router-link>
+    </nav>
+    <hr/>
+
     <router-view/>
+
   </div>
 </template>
 
