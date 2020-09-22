@@ -2,7 +2,7 @@
 <div>
   <h3>Medical Practitioner Login</h3>
   <p>Sign in below.</p>
-  <p> If you are experiencing any issues, please reach out to us at admin@epios.com.</p>
+  <p> If you are experiencing any issues, please reach out to us at support@epios.com.</p>
 
   <form @submit.prevent="doLogin">
     <label>Email:</label>
@@ -35,7 +35,6 @@ export default {
 
   methods: {
     doLogin(){
-      console.log('Doctor login form submitted.');
       axios.post(LOGIN_URL, {
         email: this.email,
         password: this.password
