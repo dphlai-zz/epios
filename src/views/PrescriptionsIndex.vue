@@ -3,11 +3,12 @@
   <h3>Prescriptions Index</h3>
 
   <div class="container header">
-    <div>Patient Name</div>
+    <div>Patient name</div>
     <div>Patient Medicare No.</div>
-    <div>Item Name</div>
+    <div>Item name</div>
     <div>Quantity</div>
     <div>Issued by</div>
+    <div>Issue date</div>
     <div>Filled by</div>
   </div>
 
@@ -20,6 +21,7 @@
     <div>{{prescription.itemName}}</div>
     <div>{{prescription.quantity}}</div>
     <div>Doctor name</div>
+    <div>{{prescription.createdAt}}</div>
     <div>Pharmacist name</div>
   </div>
 
@@ -55,7 +57,7 @@ export default {
 
   .container {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr 0.5fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr 1fr 1fr;
     padding-top: 8px;
     padding-bottom: 8px;
   }
