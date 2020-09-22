@@ -25,9 +25,15 @@ export default new Router({
       component: PharmacistLogin
     },
     {
-      path: '/Prescriptions',
+      path: '/prescriptions',
       name: 'PrescriptionsIndex',
       component: PrescriptionsIndex
+    },
+    {
+      path: '/prescriptions/:id',
+      name: 'PrescriptionDetails',
+      component: PrescriptionDetails,
+      props: true
     }
   ]
 })
