@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import DoctorLogin from '@/views/DoctorLogin'
 import PharmacistLogin from '@/views/PharmacistLogin'
 import PrescriptionsIndex from '@/views/PrescriptionsIndex'
+import PrescriptionDetails from '@/views/PrescriptionDetails'
 
 Vue.use(Router)
 
