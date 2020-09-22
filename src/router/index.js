@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from '@/components/Home'
 import DoctorLogin from '@/views/DoctorLogin'
 import PharmacistLogin from '@/views/PharmacistLogin'
-import Home from '@/components/Home'
+import PrescriptionsIndex from '@/views/PrescriptionsIndex'
 
 Vue.use(Router)
 
@@ -16,14 +17,17 @@ export default new Router({
     {
       path: '/login/doctors',
       name: 'DoctorLogin',
-      component: DoctorLogin,
-      // props: true
+      component: DoctorLogin
     },
     {
       path: '/login/pharmacists',
       name: 'PharmacistLogin',
-      component: PharmacistLogin,
-      // props: true
+      component: PharmacistLogin
+    },
+    {
+      path: '/Prescriptions',
+      name: 'PrescriptionsIndex',
+      component: PrescriptionsIndex
     }
   ]
 })
