@@ -1,6 +1,8 @@
 <template lang="html">
 <div>
   <h3>Medical Practitioner Login</h3>
+  <p>Sign in below.</p>
+  <p> If you are experiencing any issues, please reach out to us at admin@epios.com.</p>
 
   <form @submit.prevent="doLogin">
     <label>Email:</label>
@@ -41,7 +43,7 @@ export default {
       .then(res => {
         console.log('Login response', res.data);
         this.$emit('loginSuccess', res.data.user, res.data.token);
-        this.$router.push({name: 'Prescriptions'});
+        this.$router.push({name: 'PrescriptionsIndex'});
       })
       .catch(err => {
         console.log('Login error', err);
@@ -56,4 +58,21 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+form {
+  display: grid;
+  max-width: 20vw;
+  margin: 0 auto;
+  grid-template-columns: 1fr 2fr;
+}
+
+form > * {
+  margin-top: 10px;
+}
+
+label {
+  text-align: right;
+  padding-right: 10px;
+}
+
 </style>

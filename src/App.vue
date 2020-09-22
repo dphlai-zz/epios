@@ -29,3 +29,41 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+<!-- <nav>
+
+  <span v-if="currentUser._id">
+    Hello, {{currentUser.name}}
+    |
+    <a @onclick.prevent="doLogout" href="">Logout</a>
+  </span>
+  <span v-else>
+  <router-link to="/login/doctors">Medical Practitioner Login</router-link>
+  |
+  <router-link to="/login/pharmacists">Pharmacist Login</router-link>
+  </span>
+  |
+  <router-link to="/prescriptions">Prescriptions</router-link>
+</nav>
+<hr/>
+
+<router-view @loginSuccess="onLoginSuccess" :currentUser="currentUser"/>  -->
+
+<!-- import axios from 'axios';
+
+export default {
+  name: 'App',
+
+  data(){
+    return {
+      currentUser: {}
+    }
+  },
+
+  methods: {
+    onLoginSuccess(user, token){
+      this.currentUser = user;
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    } // onLoginSuccess
+  },
+} -->
