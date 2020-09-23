@@ -2,20 +2,85 @@
   <div id="app">
     <h1>Welcome to Epios</h1>
     <nav>
-      <router-link to="/login/doctors">Medical Practitioner Login</router-link>
-      |
-      <router-link to="/login/pharmacists">Pharmacist Login</router-link>
+
+      <span v-if="!isLoggedIn">
+        <router-link to="/login/doctors">Medical Practitioner Login</router-link>
+        |
+        <router-link to="/login/pharmacists">Pharmacist Login</router-link>
+      </span>
+
+      <span v-else>
+        <a href="#" @click.prevent="doLogout">Logout</a>
+      </span>
+
     </nav>
     <hr/>
 
-    <router-view/>
+    <router-view @loginSuccess="setUser" :currentUser="currentUser"/>
 
   </div>
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
-  name: 'App'
+
+  name: 'App',
+
+  data(){
+    return {
+      currentUser: {}
+    }
+  },
+
+  created(){
+    const token = localStorage.getItem("jwt")
+    const user = localStorage.getItem("user")
+    if(token !== null && user !== null) {
+      this.setUser(JSON.parse(user), token, false);
+    }
+    // console.log(token);
+  },
+
+  computed: {
+    isDoctor(){
+      return this.currentUser.type === 'doctor'
+    }, // isDoctor()
+
+    isPharmacist(){
+      return this.currentUser.type === 'pharmacist'
+    },
+
+    isLoggedIn(){
+      return this.currentUser.name !== undefined
+    } // isLoggedIn()
+  },
+
+  methods: {
+    setUser(user, token, save = true) {
+      console.log('setUser run', user, token);
+      this.currentUser = user;
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      if(save) {
+        localStorage.setItem("jwt", token)
+        localStorage.setItem("user", JSON.stringify(user))
+        // Only need to save token and user when function is called from login component's $emit, not from created() above
+      }
+    }, // setUser()
+
+    doLogout(){
+      delete axios.defaults.headers.common.Authorization
+      localStorage.removeItem("jwt")
+      localStorage.removeItem("user")
+      this.currentUser = {}
+      this.$router.push({name: 'Home'})
+    }
+
+  },
+
+
 }
 </script>
 
