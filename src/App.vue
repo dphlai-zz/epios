@@ -11,6 +11,12 @@
 
       <span v-else>
         <a href="#" @click.prevent="doLogout">Logout</a>
+        <span v-if="isDoctor">
+          |
+          <router-link to="/prescription/new">Prescription history</router-link>
+          |
+          <router-link to="/prescription/new">Issue new prescription</router-link>
+        </span>
       </span>
 
     </nav>
