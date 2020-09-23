@@ -1,6 +1,7 @@
 <template lang="html">
 <div>
 
+<div v-if="isPharmacist">
   <div v-if="prescription._id" class="container">
 
     <h2>Prescription for {{prescription.patientName}}</h2>
@@ -33,6 +34,12 @@
   <div v-else>
     <p>Loading prescription details...</p>
   </div>
+
+</div>
+
+<div v-else>
+  <h3>Access restricted. You do not have permission to view this content.</h3>
+</div>
 
 </div>
 </template>
