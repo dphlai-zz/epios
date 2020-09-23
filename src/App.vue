@@ -17,6 +17,10 @@
           |
           <router-link to="/prescription/new">Issue new prescription</router-link>
         </span>
+        <span v-if="isPharmacist">
+          |
+          <router-link to="/prescriptions">Prescriptions</router-link>
+        </span>
       </span>
 
     </nav>
