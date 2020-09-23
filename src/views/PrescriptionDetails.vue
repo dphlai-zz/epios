@@ -17,8 +17,12 @@
     <br>
     <strong>Issue Date:</strong> {{prescription.createdAt}}
     <br>
-    <strong>Filled by:</strong> {{prescription.filledByPharmacist.name}}
-    <br>
+    <div v-if="prescription.filledByPharmacist">
+      <strong>Filled by:</strong> {{prescription.filledByPharmacist.name}}
+    </div>
+    <div v-else>
+      <button @click="fillScript">Fill script</button>
+    </div>
   </div>
   <div v-else>
     <p>Loading prescription details...</p>
@@ -43,9 +47,19 @@ export default {
     }
   }, // data()
 
+  methods: {
+    fillScript(){
+      const url = `${PRESCRIPTIONS_BASE_URL}/${this.id}/fill`
+      axios.patch(url)
+      .then(res => {
+        this.prescription.res.data;
+      })
+      .catch(err => console.warn(err))
+    } // fillScript()
+  },
+
   created(){
     const url = `${PRESCRIPTIONS_BASE_URL}/${this.id}`
-
     axios.get(url)
     .then(res => {
       this.prescription = res.data;
