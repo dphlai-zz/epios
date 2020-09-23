@@ -21,9 +21,9 @@
     <div>{{prescription.patientMedicareNumber}}</div>
     <div>{{prescription.itemName}}</div>
     <div>{{prescription.quantity}}</div>
-    <div>Doctor name</div>
+    <div>{{prescription.issuedByDoctor.name}}</div>
     <div>{{prescription.createdAt}}</div>
-    <div>Pharmacist name</div>
+    <div>{{prescription | filledBy}}</div>
   </div>
 
 </div>
@@ -36,6 +36,8 @@ import axios from 'axios';
 const PRESCRIPTION_INDEX_URL = 'http://localhost:2854/prescriptions'
 
 export default {
+
+  props: ['currentUser'],
 
   data(){
     return {
@@ -51,6 +53,20 @@ export default {
     .catch(err => console.warn(err));
   }, // created()
 
+  computed: {
+    isDoctor(){
+      return this.currentUser.type === 'doctor'
+    }, // isDoctor()
+
+    isPharmacist(){
+      return this.currentUser.type === 'pharmacist'
+    },
+
+    isLoggedIn(){
+      return this.currentUser.name !== undefined
+    } // isLoggedIn()
+  },
+
   methods: {
     goToPrescriptionDetails(prescriptionId){
       this.$router.push({
@@ -60,7 +76,19 @@ export default {
         }
       });
     } // goToPrescriptionDetails()
-  } // methods
+  }, // methods
+
+  filters: {
+    filledBy(prescription){
+      if(prescription.filledByPharmacist){
+        return prescription.filledByPharmacist.name
+      } else {
+        // return '<span class="notFilled">Not filled</span>'
+        return 'NOT FILLED'
+      } // if else
+    } // filledBy
+  }
+
 }
 </script>
 
