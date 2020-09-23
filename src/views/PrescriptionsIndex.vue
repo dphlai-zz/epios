@@ -1,22 +1,23 @@
 <template lang="html">
 <div>
-  <h3>Prescriptions Index</h3>
+  <div v-if="isPharmacist">
+    <h3>Prescriptions Index</h3>
 
-  <div class="container header">
-    <div>Patient name</div>
-    <div>Patient Medicare No.</div>
-    <div>Item name</div>
-    <div>Quantity</div>
-    <div>Issued by</div>
-    <div>Issue date</div>
-    <div>Filled by</div>
-  </div>
+    <div class="container header">
+      <div>Patient name</div>
+      <div>Patient Medicare No.</div>
+      <div>Item name</div>
+      <div>Quantity</div>
+      <div>Issued by</div>
+      <div>Issue date</div>
+      <div>Filled by</div>
+    </div>
 
-  <div
+    <div
     class="container result"
     v-for="prescription in prescriptions"
     @click="goToPrescriptionDetails(prescription._id)"
-  >
+    >
     <div>{{prescription.patientName}}</div>
     <div>{{prescription.patientMedicareNumber}}</div>
     <div>{{prescription.itemName}}</div>
@@ -24,6 +25,12 @@
     <div>{{prescription.issuedByDoctor.name}}</div>
     <div>{{prescription.createdAt}}</div>
     <div>{{prescription | filledBy}}</div>
+  </div>
+
+  </div>
+
+  <div v-else>
+    <h3>Access restricted. You do not have permission to view this content.</h3>
   </div>
 
 </div>
