@@ -74,7 +74,7 @@ export default {
 
   methods: {
     setUser(user, token, save = true) {
-      console.log('setUser run', user, token);
+      console.log('setUser() successfully ran:', user, token);
       this.currentUser = user;
       axios.defaults.headers.common.Authorization = `Bearer ${token}`;
       if(save) {

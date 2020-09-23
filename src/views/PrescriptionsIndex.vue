@@ -23,7 +23,7 @@
     <div>{{prescription.itemName}}</div>
     <div>{{prescription.quantity}}</div>
     <div>{{prescription.issuedByDoctor.name}}</div>
-    <div>{{prescription.createdAt}}</div>
+    <div>{{prescription.createdAt | formatDate}}</div>
     <div>{{prescription | filledBy}}</div>
   </div>
 
@@ -93,7 +93,10 @@ export default {
         // return '<span class="notFilled">Not filled</span>'
         return 'NOT FILLED'
       } // if else
-    } // filledBy
+    }, // filledBy
+    formatDate(createdAt){
+      return new Date(createdAt).toLocaleDateString('en-AU', {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })
+    }
   }
 
 }

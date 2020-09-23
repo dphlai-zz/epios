@@ -18,7 +18,7 @@
     <br>
     <strong>Issued by:</strong> {{prescription.issuedByDoctor.name}}
     <br>
-    <strong>Issue Date:</strong> {{prescription.createdAt}}
+    <strong>Issue Date:</strong> {{prescription.createdAt | formatDate}}
     <br>
 
     <div v-if="prescription.filledByPharmacist && isPharmacist">
@@ -89,6 +89,12 @@ export default {
     isPharmacist(){
       return this.currentUser.type === 'pharmacist'
     },
+  },
+
+  filters: {
+    formatDate(createdAt){
+      return new Date(createdAt).toLocaleDateString('en-AU', {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })
+    } // formatDate()
   } // created()
 
 }
