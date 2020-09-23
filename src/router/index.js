@@ -6,6 +6,7 @@ import PharmacistLogin from '@/views/PharmacistLogin'
 import PrescriptionsIndex from '@/views/PrescriptionsIndex'
 import PrescriptionDetails from '@/views/PrescriptionDetails'
 import NewPrescription from '@/views/NewPrescription'
+import PrescriptionHistory from '@/views/PrescriptionHistory'
 
 Vue.use(Router)
 
@@ -42,6 +43,12 @@ export default new Router({
       path:'/prescription/new',
       name: 'NewPrescription',
       component: NewPrescription,
+      props: true
+    },
+    {
+      path: '/prescription-history',
+      name: 'PrescriptionHistory',
+      component: PrescriptionHistory,
       props: true
     }
   ]

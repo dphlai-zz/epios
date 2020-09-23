@@ -15,7 +15,7 @@
 
         <span v-if="isDoctor">
           |
-          <router-link to="/prescriptions">My prescription history</router-link>
+          <router-link to="/prescription-history">My prescription history</router-link>
           |
           <router-link to="/prescription/new">Issue new prescription</router-link>
         </span>

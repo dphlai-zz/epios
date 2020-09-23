@@ -88,7 +88,7 @@ export default {
 
     isPharmacist(){
       return this.currentUser.type === 'pharmacist'
-    },
+    }
   },
 
   filters: {
