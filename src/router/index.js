@@ -5,6 +5,7 @@ import DoctorLogin from '@/views/DoctorLogin'
 import PharmacistLogin from '@/views/PharmacistLogin'
 import PrescriptionsIndex from '@/views/PrescriptionsIndex'
 import PrescriptionDetails from '@/views/PrescriptionDetails'
+import NewPrescription from '@/views/NewPrescription'
 
 Vue.use(Router)
 
@@ -28,12 +29,19 @@ export default new Router({
     {
       path: '/prescriptions',
       name: 'PrescriptionsIndex',
-      component: PrescriptionsIndex
+      component: PrescriptionsIndex,
+      props: true
     },
     {
       path: '/prescriptions/:id',
       name: 'PrescriptionDetails',
       component: PrescriptionDetails,
+      props: true
+    },
+    {
+      path:'/prescription/new',
+      name: 'NewPrescription',
+      component: NewPrescription,
       props: true
     }
   ]
