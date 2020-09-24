@@ -42,7 +42,7 @@ export default {
       .then(res => {
         console.log('Login response', res.data);
         this.$emit('loginSuccess', res.data.user, res.data.token);
-        this.$router.push({name: 'PrescriptionsIndex'});
+        this.$router.push({name: 'PrescriptionHistory'});
       })
       .catch(err => {
         console.log('Login error', err);

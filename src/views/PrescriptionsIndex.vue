@@ -11,6 +11,7 @@
       <div>Issued by</div>
       <div>Issue date</div>
       <div>Filled by</div>
+      <div>Filled date</div>
     </div>
 
     <div
@@ -25,6 +26,10 @@
     <div>{{prescription.issuedByDoctor.name}}</div>
     <div>{{prescription.createdAt | formatDate}}</div>
     <div>{{prescription | filledBy}}</div>
+    <div>
+      <span v-if="'filledByPharmacist' in prescription">{{prescription.updatedAt | formatDate}}</span>
+      <span v-else>Script not filled</span>
+    </div>
   </div>
 
   </div>
@@ -91,12 +96,13 @@ export default {
         return prescription.filledByPharmacist.name
       } else {
         // return '<span class="notFilled">Not filled</span>'
-        return 'NOT FILLED'
+        return 'Script not filled'
       } // if else
-    }, // filledBy
-    formatDate(createdAt){
-      return new Date(createdAt).toLocaleDateString('en-AU', {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })
-    }
+    }, // filledBy()
+
+    formatDate(unformattedDate){
+      return new Date(unformattedDate).toLocaleDateString('en-AU', {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })
+    } // formatDate()
   }
 
 }
@@ -106,7 +112,7 @@ export default {
 
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr 1fr 1fr 1fr;
     padding-top: 8px;
     padding-bottom: 8px;
   }

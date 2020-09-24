@@ -1,7 +1,7 @@
 <template lang="html">
 <div>
 
-  <h3>Add new prescription</h3>
+  <h3>Issue new prescription</h3>
 
   <form @submit.prevent="issueScript">
     <label>Patient Name:</label>
