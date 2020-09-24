@@ -20,7 +20,7 @@
 
 import axios from 'axios'
 
-const LOGIN_URL = 'http://localhost:2854/login/doctors'
+import {DOCTOR_LOGIN_URL} from '../constants'
 
 export default {
   name: 'DoctorLogin',
@@ -35,7 +35,7 @@ export default {
 
   methods: {
     doLogin(){
-      axios.post(LOGIN_URL, {
+      axios.post(DOCTOR_LOGIN_URL, {
         email: this.email,
         password: this.password
       })

@@ -28,7 +28,7 @@
 
 import axios from 'axios'
 
-const PRESCRIPTIONS_URL = 'http://localhost:2854/prescriptions'
+import {PRESCRIPTIONS_URL} from '../constants'
 
 export default {
 

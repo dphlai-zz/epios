@@ -72,7 +72,7 @@
 
 import axios from 'axios';
 
-const PRESCRIPTIONS_BASE_URL = 'http://localhost:2854/prescriptions'
+import {PRESCRIPTIONS_URL} from '../constants'
 
 export default {
 
@@ -86,7 +86,7 @@ export default {
 
   methods: {
     fillScript(){
-      const url = `${PRESCRIPTIONS_BASE_URL}/${this.id}/fill`
+      const url = `${PRESCRIPTIONS_URL}/${this.id}/fill`
       axios.patch(url)
       .then(res => {
         console.log('Response:', res.data);
@@ -97,7 +97,7 @@ export default {
   },
 
   created(){
-    const url = `${PRESCRIPTIONS_BASE_URL}/${this.id}`
+    const url = `${PRESCRIPTIONS_URL}/${this.id}`
     axios.get(url)
     .then(res => {
       this.prescription = res.data;

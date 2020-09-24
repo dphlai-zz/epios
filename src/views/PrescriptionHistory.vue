@@ -38,7 +38,7 @@
 
 import axios from 'axios'
 
-const PRESCRIPTION_HISTORY_URL = 'http://localhost:2854/prescription-history'
+import {PRESCRIPTION_HISTORY_URL} from '../constants'
 
 export default {
 

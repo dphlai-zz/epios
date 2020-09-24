@@ -45,7 +45,7 @@
 
 import axios from 'axios';
 
-const PRESCRIPTION_INDEX_URL = 'http://localhost:2854/prescriptions'
+import {PRESCRIPTIONS_URL} from '../constants'
 
 export default {
 
@@ -58,7 +58,7 @@ export default {
   }, // data()
 
   created(){
-    axios.get(PRESCRIPTION_INDEX_URL)
+    axios.get(PRESCRIPTIONS_URL)
     .then(res => {
       this.prescriptions = res.data;
     })
@@ -87,7 +87,6 @@ export default {
       if(prescription.filledByPharmacist){
         return prescription.filledByPharmacist.name
       } else {
-        // return '<span class="notFilled">Not filled</span>'
         return 'Script not filled'
       } // if else
     }, // filledBy()
