@@ -4,26 +4,50 @@
 <div v-if="isPharmacist">
   <div v-if="prescription._id" class="container">
 
-    <h2>Prescription for {{prescription.patientName}}</h2>
+    <h3>Prescription for {{prescription.patientName}}</h3>
 
-    <strong>Patient Medicare Number:</strong> {{prescription.patientMedicareNumber}}
-    <br>
-    <strong>Patient Address:</strong> {{prescription.patientAddress}}
-    <br>
-    <strong>Item Name:</strong> {{prescription.itemName}}
-    <br>
-    <strong>Dosage Instructions:</strong> {{prescription.dosageInstructions}}
-    <br>
-    <strong>Quantity:</strong> {{prescription.quantity}}
-    <br>
-    <strong>Issued by:</strong> {{prescription.issuedByDoctor.name}}
-    <br>
-    <strong>Issue Date:</strong> {{prescription.createdAt | formatDate}}
-    <br>
+    <table>
+      <tr>
+        <th scope="row">Patient Medicare Number</th>
+        <td>{{prescription.patientMedicareNumber}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Patient Address</th>
+        <td>{{prescription.patientAddress}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Item Name</th>
+        <td>{{prescription.itemName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Dosage Instructions</th>
+        <td>{{prescription.dosageInstructions}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Quantity</th>
+        <td>{{prescription.quantity}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Issued by</th>
+        <td>{{prescription.issuedByDoctor.name}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Issue Date</th>
+        <td>{{prescription.createdAt | formatDate}}</td>
+      </tr>
+      <tr>
+        <th scope=" row">Filled by</th>
+        <td>
+          <span v-if="prescription.filledByPharmacist && isPharmacist">
+            {{prescription.filledByPharmacist.name}}
+          </span>
+          <span v-else>Script not filled</span>
+        </td>
+      </tr>
+    </table>
 
-    <div v-if="prescription.filledByPharmacist && isPharmacist">
-      <strong>Filled by:</strong> {{prescription.filledByPharmacist.name}}
-    </div>
+    <br>
+    <div v-if="prescription.filledByPharmacist && isPharmacist"></div>
 
     <div v-else>
       <button @click="fillScript">Fill script</button>
@@ -100,6 +124,43 @@ export default {
 
 .container {
   text-align: center;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  width: 20%;
+  text-align: center;
+}
+
+th, td {
+  padding: 15px;
+}
+
+button {
+  background-color: rgb(0, 50, 66);
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  transition: all 0.3s;
+  height: 45px;
+  width: 160px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+button:hover {
+  letter-spacing: 1px;
+  background-color: rgb(0, 132, 175);
 }
 
 </style>
