@@ -82,13 +82,9 @@ export default {
   },
 
   computed: {
-    isDoctor(){
-      return this.currentUser.type === 'doctor'
-    }, // isDoctor()
-
     isPharmacist(){
       return this.currentUser.type === 'pharmacist'
-    }
+    } // isPharmacist()
   },
 
   filters: {

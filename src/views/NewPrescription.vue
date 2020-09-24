@@ -62,7 +62,7 @@ export default {
       })
       .then(res => {
         console.log('Form submitted:', res.data);
-        this.$router.push({name: 'PrescriptionsIndex'});
+        this.$router.push({name: 'PrescriptionHistory'});
       })
       .catch(err => {
         console.log(err);

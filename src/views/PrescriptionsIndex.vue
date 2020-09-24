@@ -66,17 +66,9 @@ export default {
   }, // created()
 
   computed: {
-    isDoctor(){
-      return this.currentUser.type === 'doctor'
-    }, // isDoctor()
-
     isPharmacist(){
       return this.currentUser.type === 'pharmacist'
-    },
-
-    isLoggedIn(){
-      return this.currentUser.name !== undefined
-    } // isLoggedIn()
+    } // isPharmacist()
   },
 
   methods: {
@@ -105,7 +97,7 @@ export default {
     } // formatDate()
   }
 
-}
+} // export default
 </script>
 
 <style lang="css" scoped>

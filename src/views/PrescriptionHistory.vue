@@ -70,7 +70,7 @@ export default {
     } // formatDate()
   }
 
-}
+} // export default
 </script>
 
 <style lang="css" scoped>
