@@ -9,7 +9,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Lorem ipsum'
+      msg: 'Please sign in via one of the links above.'
     }
   }
 }

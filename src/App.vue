@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Welcome to Epios</h1>
+    <h1>Epios - Digital Prescription Management</h1>
     <nav>
 
       <span v-if="!isLoggedIn">
@@ -28,7 +28,7 @@
       </span>
 
     </nav>
-    <hr/>
+    <!-- <hr/> -->
 
     <router-view @loginSuccess="setUser" :currentUser="currentUser"/>
 
@@ -104,4 +104,26 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgb(0, 50, 66);
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.7em;
+  color: white;
+}
+
+a:hover {
+  background: rgba(59, 101, 115, 1);
+}
+
 </style>

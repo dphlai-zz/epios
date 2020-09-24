@@ -16,8 +16,6 @@
     <input type="text" v-model="dosageInstructions">
     <label>Quantity:</label>
     <input type="number" v-model="quantity">
-    <!-- <label>Issued By:</label>
-    <input disabled type="text" :value="currentUser.id"> -->
 
     <br>
     <button>Issue Script</button>
@@ -90,6 +88,22 @@ form > * {
 label {
   text-align: right;
   padding-right: 10px;
+}
+button {
+  background-color: rgb(0, 50, 66);
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: white;
+  transition: all 0.3s;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+button:hover {
+  letter-spacing: 1px;
+  background-color: rgb(0, 132, 175);
 }
 
 </style>
