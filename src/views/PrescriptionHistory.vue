@@ -93,5 +93,3 @@ export default {
   }
 
 </style>
-
-<!-- Created new PrescriptionHistory template for doctors -->
