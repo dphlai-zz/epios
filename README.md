@@ -8,7 +8,7 @@ Epios has been built using the MEVN stack, i.e. Mongoose/Mongo DB, Express, Vue.
 
 <h2>Link</h2>
 
-> https://github.com/dphlai
+> https://dphlai.github.io/epios
 
 <h2>Features</h2>
 
