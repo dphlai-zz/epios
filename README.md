@@ -1,27 +1,29 @@
-# project-three-vue-frontend
+# Epios
 
-> A Vue.js project
+Thanks for visiting my final project from General Assembly's Software Engineering Immersive bootcamp.
 
-## Build Setup
+Epios is an easy to use, proof of concept designed to tackle the paper-based inefficiencies that detract from the prescription fulfillment experience in Australian healthcare.
 
-``` bash
-# install dependencies
-npm install
+Epios has been built using the MEVN stack, i.e. Mongoose/Mongo DB, Express, Vue.js and Node.
 
-# serve with hot reload at localhost:8080
-npm run dev
+<h2>Link</h2>
 
-# build for production with minification
-npm run build
+> https://github.com/dphlai
 
-# build for production and view the bundle analyzer report
-npm run build --report
+<h2>Features</h2>
 
-# run unit tests
-npm run unit
+* Doctors are able to issue a script for patients, which is instantly added to a central index of outstanding and filled scripts
 
-# run all tests
-npm test
-```
+* Pharmacists are able to view this index and fulfil, i.e. issue, scripts accordingly
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+<h3>Doctor Login</h3>
+
+* Email: doc@ga.co
+
+* Password: chicken
+
+<h3>Pharmacist Login</h3>
+
+* Email: jen@ga.co
+
+* Password: chicken
