@@ -9,7 +9,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Please sign in via one of the links above.'
+      msg: 'Welcome to Epios. Please sign in via one of the links above.'
     }
   }
 }
